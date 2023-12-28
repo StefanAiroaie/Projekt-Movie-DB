@@ -1001,11 +1001,7 @@ const movies = [
     ]
 ];
 
-console.log(movies.length);
-console.log(movies[1]);
-console.log(movies[1, 5, 6]);
 
-let output = []
 let movies2 = [[
     'Heat',
     '1995',
@@ -1043,13 +1039,21 @@ let movies2 = [[
 
 
 
-
-console.log("toate filmele: " + movies2);
-
-
 let outputDom = document.querySelector("#movies")
 
-movies.forEach(showMovies)
+// console.log(movies2);
+// function sortUp() {
+//     movies2 = movies2.sort()
+//     console.log(movies2);
+// }
+
+
+
+
+//zeigt die movies DB
+movies2.forEach(showMovies)
+
+// function fur movies DB an DOM anzuzeigen
 function showMovies(movie, index) {
     let title = movie[0]
     let year = movie[1]
@@ -1058,8 +1062,26 @@ function showMovies(movie, index) {
     let type = movie[4]
     let rate = movie[5]
     // console.log(title + year);
-    outputDom.innerHTML += "<article>" + "<h3>" + index + ": " + title + "</h3>" + "<p>" + year + "</p>" + "<p>" + maker + "</p>" + "<p>" + duration + "</p>" + "<p>" + type + "</p>" + "<p>" + rate + "</p>" + "</article>"
+    outputDom.innerHTML += "<article>" + "<h3>" + title + "</h3>" + "<p>" + year + "</p>" + "<p>" + maker + "</p>" + "<p>" + duration + "</p>" + "<p>" + type + "</p>" + "<p>" + rate + "</p>" + "</article>"
 }
+
+
+//sort nach Title
+let sortTitle = document.querySelector("#sortTitle")
+let yearDown = document.querySelector("#yearDown")
+sortTitle.addEventListener("click", function () {
+    movies2 = movies2.sort()
+    outputDom.innerHTML = ""
+    movies2.forEach(showMovies)
+})
+
+
+console.log(movies2[1]);
+
+
+
+
+
 
 // console.log(output);
 // outputDom.innerHTML = output
