@@ -17,9 +17,20 @@ section {
 }
 
 #movies {
-    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+article {
+    width: 250px;
     height: 200px;
     background-color: coral;
     border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    gap: 5px;
 
 }

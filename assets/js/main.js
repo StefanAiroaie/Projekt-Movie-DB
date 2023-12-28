@@ -1004,6 +1004,63 @@ const movies = [
 console.log(movies.length);
 console.log(movies[1]);
 console.log(movies[1, 5, 6]);
-console.log(movies[2].length);
-console.log(movies[2].length);
-console.log(movies[2].length);
+
+let output = []
+let movies2 = [[
+    'Heat',
+    '1995',
+    'Michael Mann',
+    '2h 50min',
+    ['Action', 'Crime', 'Drama', 'Thriller'],
+    '8.2'
+],
+[
+    'The Third Man',
+    '1949',
+    'Carol Reed',
+    '1h 44min',
+    ['Film-Noir', 'Mystery', 'Thriller'],
+    '8.3'],
+[
+    'Die Hard',
+    '1988',
+    'John McTiernan',
+    '2h 11min',
+    ['Action', 'Thriller'],
+    '8.2'
+],
+[
+    'Raging Bull',
+    '1980',
+    'Martin Scorsese',
+    '2h 9min',
+    ['Biography', 'Drama', 'Sport'],
+    '8.2'
+],
+]
+
+
+
+
+
+
+console.log("toate filmele: " + movies2);
+
+
+let outputDom = document.querySelector("#movies")
+
+movies.forEach(showMovies)
+function showMovies(movie, index) {
+    let title = movie[0]
+    let year = movie[1]
+    let maker = movie[2]
+    let duration = movie[3]
+    let type = movie[4]
+    let rate = movie[5]
+    // console.log(title + year);
+    outputDom.innerHTML += "<article>" + "<h3>" + index + ": " + title + "</h3>" + "<p>" + year + "</p>" + "<p>" + maker + "</p>" + "<p>" + duration + "</p>" + "<p>" + type + "</p>" + "<p>" + rate + "</p>" + "</article>"
+}
+
+// console.log(output);
+// outputDom.innerHTML = output
+// showMovies()
