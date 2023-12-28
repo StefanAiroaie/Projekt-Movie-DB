@@ -1002,7 +1002,7 @@ const movies = [
 ];
 
 
-let movies2 = [[
+const movies2 = [[
     'Heat',
     '1995',
     'Michael Mann',
@@ -1051,7 +1051,7 @@ let outputDom = document.querySelector("#movies")
 
 
 //zeigt die movies DB
-movies2.forEach(showMovies)
+movies.forEach(showMovies)
 
 // function fur movies DB an DOM anzuzeigen
 function showMovies(movie, index) {
@@ -1070,13 +1070,12 @@ function showMovies(movie, index) {
 let sortTitle = document.querySelector("#sortTitle")
 let yearDown = document.querySelector("#yearDown")
 sortTitle.addEventListener("click", function () {
-    movies2 = movies2.sort()
+    moviesSorted = movies.sort()
     outputDom.innerHTML = ""
-    movies2.forEach(showMovies)
+    moviesSorted.forEach(showMovies)
 })
 
 
-console.log(movies2[1]);
 
 
 
