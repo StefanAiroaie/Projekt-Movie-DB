@@ -1092,23 +1092,79 @@ yearDown.addEventListener("click", function () {
 let rating = document.querySelector("#rate");
 rating.addEventListener("click", function () {
     let sortedRating = movies.sort((a, b) => b[5] - a[5]);
-    outputDom.innerHTML = "";
-    sortedRating.forEach(showMovies);
+    outputDom.innerHTML = ""
+    sortedRating.forEach(showMovies)
 });
 
 // ssearch
-
-console.log("test");
+const reset = () => {
+    outputDom.innerHTML = "";
+}
 
 function searchFunc() {
-    let searchInput = document.querySelector('#search').value;
+    reset()
+    let searchInput = document.querySelector('#search').value.toLowerCase()
     console.log("test" + searchInput);
-    let newSort = movies.includes(searchInput)
-    
-    outputDom.innerHTML = "";
-    newSort.forEach(showMovies);
-
+    let filter = movies.filter((parameter) => {
+        return parameter[0].toLowerCase().includes(searchInput)
+    })
+    // showMovies(filter)
+    // showMovies(filter)
+    filter.forEach(showMovies)
 }
+
+
+
+
+
+// const searchField = document.querySelector("#searchField")
+// searchField.addEventListener("input", e => {
+//     const value = e.target.value
+//     console.log(value);
+//     movies.forEach(movies => {
+//         const istVisible = movies[0].includes(value)
+//         console.log(movies[0]);
+//         movies.element.classList.toggle("hide", !istVisible)
+//         console.log(istVisible);
+//     })})
+
+
+
+// const searchField = document.querySelector("#searchField")
+// searchField.addEventListener("input", e => {
+//     const value = e.target.value
+//     console.log(value);
+
+//     console.log(movies);
+//     movies.forEach(film => {
+//         const isVisible = film.includes(value)
+//         console.log(isVisible);
+//         film.classList.toggle("hide", !isVisible)
+//     })
+
+
+// })
+
+
+
+
+
+
+// console.log(moviesSearch);
+// outputDom.innerHTML = ""
+// moviesSearch.forEach(showMovies)
+
+//
+// istVisible.classList.toggle("hide", !istVisible)
+// console.log(movies);
+
+
+
+
+
+
+
+
 
 
 

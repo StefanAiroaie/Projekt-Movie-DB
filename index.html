@@ -12,10 +12,11 @@
   <section>
     <h1>Movies for you</h1>
     <h3>the best Movie Data Base</h3>
-    <form onsubmit="searchFunc(); return false">
+    <form>
       <input type="text" id="search">
-      <input type="submit" value="Search">
+      <input type="button" value="Search" onclick="searchFunc()">
     </form>
+    <!-- <input type="search" name="search" id="searchField" placeholder="Search a movie or a year"> -->
     <div class="sortDiv">
       <button id="sortTitle">Sort by Title</button>
       <button id="yearUp">Year up</button>
