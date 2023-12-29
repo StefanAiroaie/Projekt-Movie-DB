@@ -1038,7 +1038,6 @@ const movies2 = [[
 
 
 
-
 let outputDom = document.querySelector("#movies")
 
 // console.log(movies2);
@@ -1065,16 +1064,51 @@ function showMovies(movie, index) {
     outputDom.innerHTML += "<article>" + "<h3>" + title + "</h3>" + "<p>" + year + "</p>" + "<p>" + maker + "</p>" + "<p>" + duration + "</p>" + "<p>" + type + "</p>" + "<p>" + rate + "</p>" + "</article>"
 }
 
-
-//sort nach Title
+// sort by title
 let sortTitle = document.querySelector("#sortTitle")
-let yearDown = document.querySelector("#yearDown")
 sortTitle.addEventListener("click", function () {
     moviesSorted = movies.sort()
     outputDom.innerHTML = ""
     moviesSorted.forEach(showMovies)
 })
 
+// sort jahr up
+let yearUp = document.querySelector("#yearUp");
+yearUp.addEventListener("click", function () {
+    let sortedYearUp = movies.sort((a, b) => a[1] - b[1]);
+    outputDom.innerHTML = "";
+    sortedYearUp.forEach(showMovies);
+});
+
+// sort jahr down
+let yearDown = document.querySelector("#yearDown");
+yearDown.addEventListener("click", function () {
+    let sortedYearDown = movies.sort((a, b) => b[1] - a[1]);
+    outputDom.innerHTML = "";
+    sortedYearDown.forEach(showMovies);
+});
+
+// sort rating
+let rating = document.querySelector("#rate");
+rating.addEventListener("click", function () {
+    let sortedRating = movies.sort((a, b) => b[5] - a[5]);
+    outputDom.innerHTML = "";
+    sortedRating.forEach(showMovies);
+});
+
+// ssearch
+
+console.log("test");
+
+function searchFunc() {
+    let searchInput = document.querySelector('#search').value;
+    console.log("test" + searchInput);
+    let newSort = movies.includes(searchInput)
+    
+    outputDom.innerHTML = "";
+    newSort.forEach(showMovies);
+
+}
 
 
 
@@ -1082,6 +1116,4 @@ sortTitle.addEventListener("click", function () {
 
 
 
-// console.log(output);
-// outputDom.innerHTML = output
-// showMovies()
+
