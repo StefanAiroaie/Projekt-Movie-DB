@@ -1046,30 +1046,7 @@ let moviesCopy = [...movies]
 //zeigt die movies DB
 moviesCopy.forEach(showMovies)
 
-// // function fur movies DB an DOM anzuzeigen
-// function showMovies(movie, index) {
-//     let title = movie[0]
-//     let year = movie[1]
-//     let maker = movie[2]
-//     let duration = movie[3]
-//     let type = movie[4]
-//     let rate = movie[5]
-
-//     let moviesNumber = document.querySelector("#moviesNumber")
-//     moviesNumber.textContent = moviesCopy.length
-
-
-//     outputDom.innerHTML += `<div class='cards'>
-//         <h3>${title}</h3>
-//         <p>${year}</p>
-//         <p>${maker}</p>
-//         <p>${duration}</p>
-//         <p class='type'>${type}</p>
-//         <p>Rating: ${rate}</p>
-//     </div>`;
-// }
-
-
+// function fur movies DB an DOM anzuzeigen
 function showMovies(movie, index) {
     let title = movie[0]
     let year = movie[1]
@@ -1077,34 +1054,23 @@ function showMovies(movie, index) {
     let duration = movie[3]
     let types = movie[4]
     let rate = movie[5]
-
     let moviesNumber = document.querySelector("#moviesNumber")
     moviesNumber.textContent = moviesCopy.length
-
+    // types foreach
     let newTypes = '';
     types.forEach((type, i) => {
         newTypes += `<p>${type} </p>`
     })
-
+    // don result
     outputDom.innerHTML += `<div class='cards'>
         <h3>${title}</h3>
         <p>${year}</p>
-
         <p>${maker}</p>
         <p>${duration}</p>
         <div class="type">${newTypes}</div>
         <p>Rating: ${rate}</p>
     </div>`;
 }
-
-
-
-
-
-
-
-
-
 
 // sort by title
 let sortTitle = document.querySelector("#sortTitle")
@@ -1150,10 +1116,9 @@ function searchFunc() {
     console.log("test" + searchInput);
     let filter = moviesCopy.filter((parameter) => {
         return parameter[0].toLowerCase().includes(searchInput) || parameter[1].includes(searchInput)
-
     })
     // showMovies(filter)
-    filter.forEach(showMovies)
+    filter.length !== 0 ? filter.forEach(showMovies) : outputDom.innerHTML = `<div class='cards'><h3>Sorry the Movie ist not available<h3></div>`
 }
 
 
@@ -1165,15 +1130,12 @@ function addMovie() {
     let addType = document.querySelector("#addType").value
     let rating = document.querySelector("#rating").value
     console.log(`${addTitle} ${movieYear} ${addMaker} ${addType} ${rating}`);
-
     let newMovie = [addTitle, movieYear, addMaker, addTime, [addType], rating];
-    // addMovie.push([`${addTitle}, ${movieYear}, ${addMaker}, ${addTime}, ${[addType]}, ${rating},`])
     moviesCopy.push(newMovie)
     console.log("aici sunt datele noi" + newMovie);
     console.log(moviesCopy);
     reset()
     moviesCopy.forEach(showMovies)
-
 }
 
 
