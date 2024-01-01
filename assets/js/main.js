@@ -1046,28 +1046,65 @@ let moviesCopy = [...movies]
 //zeigt die movies DB
 moviesCopy.forEach(showMovies)
 
-// function fur movies DB an DOM anzuzeigen
+// // function fur movies DB an DOM anzuzeigen
+// function showMovies(movie, index) {
+//     let title = movie[0]
+//     let year = movie[1]
+//     let maker = movie[2]
+//     let duration = movie[3]
+//     let type = movie[4]
+//     let rate = movie[5]
+
+//     let moviesNumber = document.querySelector("#moviesNumber")
+//     moviesNumber.textContent = moviesCopy.length
+
+
+//     outputDom.innerHTML += `<div class='cards'>
+//         <h3>${title}</h3>
+//         <p>${year}</p>
+//         <p>${maker}</p>
+//         <p>${duration}</p>
+//         <p class='type'>${type}</p>
+//         <p>Rating: ${rate}</p>
+//     </div>`;
+// }
+
+
 function showMovies(movie, index) {
     let title = movie[0]
     let year = movie[1]
     let maker = movie[2]
     let duration = movie[3]
-    let type = movie[4]
+    let types = movie[4]
     let rate = movie[5]
 
     let moviesNumber = document.querySelector("#moviesNumber")
     moviesNumber.textContent = moviesCopy.length
 
+    let newTypes = '';
+    types.forEach((type, i) => {
+        newTypes += `<p>${type} </p>`
+    })
 
     outputDom.innerHTML += `<div class='cards'>
         <h3>${title}</h3>
         <p>${year}</p>
+
         <p>${maker}</p>
         <p>${duration}</p>
-        <p class='type'>${type}</p>
+        <div class="type">${newTypes}</div>
         <p>Rating: ${rate}</p>
     </div>`;
 }
+
+
+
+
+
+
+
+
+
 
 // sort by title
 let sortTitle = document.querySelector("#sortTitle")

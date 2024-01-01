@@ -108,11 +108,7 @@ main {
     main {
         padding-top: 150px;
     }
-
-
 }
-
-
 
 h1,
 h3 {
@@ -154,15 +150,19 @@ section {
 
 .type {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    border: 1px solid #223e54;
-    background-color: #223e54;
-    color: white;
-    border-radius: 1rem;
-    padding: .3rem .5rem;
-    font-size: .8rem;
+    gap: .3rem
 }
 
+.type p {
+    background-color: #223e5494;
+    color: white;
+    border-radius: .1rem;
+    padding: .3rem .5rem;
+    font-size: .6rem;
+
+}
 
 /* add movie form*/
 
