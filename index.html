@@ -25,11 +25,11 @@
   </header>
   <main>
     <form id="adMovie" onsubmit="addMovie(); return false">
-      <input type="text" id="addTitle" placeholder="Movie Title">
-      <input type="number" id="movieYear" placeholder="Movie Year" min="4">
-      <input type="text" id="addMaker" placeholder="Movie Maker">
-      <input type="text" id="addTime" placeholder="Time">
-      <input type="text" id="addType" placeholder="Type">
+      <input type="text" id="addTitle" placeholder="Movie Title" required>
+      <input type="number" id="movieYear" placeholder="Movie Year" required>
+      <input type="text" id="addMaker" placeholder="Movie Maker" required>
+      <input type="text" id="addTime" placeholder="Time" required>
+      <input type="text" id="addType" placeholder="Type" required>
       <input type="text" id="rating" placeholder="Rating" pattern="[0-9]+([.][0-9]+)?">
       <input type="submit" value="Add Movie">
     </form>
