@@ -1040,18 +1040,23 @@ const movies2 = [[
 
 let outputDom = document.querySelector("#movies")
 
+let moviesCopy = [...movies]
+
 
 //zeigt die movies DB
-movies.forEach(showMovies)
+moviesCopy.forEach(showMovies)
 
 // function fur movies DB an DOM anzuzeigen
-function showMovies(movie) {
+function showMovies(movie, index) {
     let title = movie[0]
     let year = movie[1]
     let maker = movie[2]
     let duration = movie[3]
     let type = movie[4]
     let rate = movie[5]
+
+    let moviesNumber = document.querySelector("#moviesNumber")
+    moviesNumber.textContent = moviesCopy.length
 
 
     outputDom.innerHTML += `<div class='cards'>
@@ -1060,14 +1065,14 @@ function showMovies(movie) {
         <p>${maker}</p>
         <p>${duration}</p>
         <p class='type'>${type}</p>
-        <p>${rate}</p>
+        <p>Rating: ${rate}</p>
     </div>`;
 }
 
 // sort by title
 let sortTitle = document.querySelector("#sortTitle")
 sortTitle.addEventListener("click", function () {
-    moviesSorted = movies.sort()
+    moviesSorted = moviesCopy.sort()
     outputDom.innerHTML = ""
     moviesSorted.forEach(showMovies)
 })
@@ -1075,7 +1080,7 @@ sortTitle.addEventListener("click", function () {
 // sort jahr up
 let yearUp = document.querySelector("#yearUp");
 yearUp.addEventListener("click", function () {
-    let sortedYearUp = movies.sort((a, b) => a[1] - b[1]);
+    let sortedYearUp = moviesCopy.sort((a, b) => a[1] - b[1]);
     outputDom.innerHTML = "";
     sortedYearUp.forEach(showMovies);
 });
@@ -1083,7 +1088,7 @@ yearUp.addEventListener("click", function () {
 // sort jahr down
 let yearDown = document.querySelector("#yearDown");
 yearDown.addEventListener("click", function () {
-    let sortedYearDown = movies.sort((a, b) => b[1] - a[1]);
+    let sortedYearDown = moviesCopy.sort((a, b) => b[1] - a[1]);
     outputDom.innerHTML = "";
     sortedYearDown.forEach(showMovies);
 });
@@ -1091,7 +1096,7 @@ yearDown.addEventListener("click", function () {
 // sort rating
 let rating = document.querySelector("#rate");
 rating.addEventListener("click", function () {
-    let sortedRating = movies.sort((a, b) => b[5] - a[5]);
+    let sortedRating = moviesCopy.sort((a, b) => b[5] - a[5]);
     outputDom.innerHTML = ""
     sortedRating.forEach(showMovies)
 });
@@ -1099,13 +1104,14 @@ rating.addEventListener("click", function () {
 // ssearch
 const reset = () => {
     outputDom.innerHTML = "";
+
 }
 
 function searchFunc() {
     reset()
     let searchInput = document.querySelector('#search').value.toLowerCase()
     console.log("test" + searchInput);
-    let filter = movies.filter((parameter) => {
+    let filter = moviesCopy.filter((parameter) => {
         return parameter[0].toLowerCase().includes(searchInput) || parameter[1].includes(searchInput)
 
     })
@@ -1114,8 +1120,24 @@ function searchFunc() {
 }
 
 
+function addMovie() {
+    let addTitle = document.querySelector("#addTitle").value
+    let movieYear = document.querySelector("#movieYear").value
+    let addMaker = document.querySelector("#addMaker").value
+    let addTime = document.querySelector("#addTime").value
+    let addType = document.querySelector("#addType").value
+    let rating = document.querySelector("#rating").value
+    console.log(`${addTitle} ${movieYear} ${addMaker} ${addType} ${rating}`);
 
+    let newMovie = [addTitle, movieYear, addMaker, addTime, [addType], rating];
+    // addMovie.push([`${addTitle}, ${movieYear}, ${addMaker}, ${addTime}, ${[addType]}, ${rating},`])
+    moviesCopy.push(newMovie)
+    console.log("aici sunt datele noi" + newMovie);
+    console.log(moviesCopy);
+    reset()
+    moviesCopy.forEach(showMovies)
 
+}
 
 
 

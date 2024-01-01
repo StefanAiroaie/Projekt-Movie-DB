@@ -164,6 +164,17 @@ section {
 }
 
 
+/* add movie form*/
+
+#adMovie {
+    padding: 1rem .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+}
+
 footer {
     background-color: #223e54;
     width: 100vw;
