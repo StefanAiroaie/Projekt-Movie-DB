@@ -1,19 +1,130 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+    font-family: Karla;
+    src: url("../fonts/Karla-VariableFont_wght.ttf");
 }
 
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Karla;
+}
+
+
+
+/* header */
+header {
+    position: fixed;
+    z-index: 1000;
+    background-color: #223e54;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5rem 1rem;
+}
+
+@media (max-width: 780px) {
+    header {
+        height: 150px;
+        gap: .3rem;
+    }
+
+    main {
+        padding-top: 240px;
+    }
+
+    button {
+        padding: .1rem .3rem;
+        text-transform: uppercase;
+    }
+
+    .sorting {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .3rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+header .logo {
+    color: white;
+    font-size: 1.25rem;
+}
+
+input {
+    border: 1px solid white;
+    color: #223e54;
+    background-color: white;
+    padding: .2rem .7rem;
+}
+
+input[type="button"] {
+    border: 1px solid white;
+    color: #223e54;
+    background-color: white;
+    padding: .2rem .7rem;
+    text-transform: uppercase;
+}
+
+input[type="button"]:hover {
+    border: 1px solid #b98732;
+    color: white;
+    background-color: #b98732;
+}
+
+button {
+    border: 1px solid white;
+    color: #223e54;
+    background-color: white;
+    padding: .2rem .7rem;
+    text-transform: uppercase;
+}
+
+button:hover {
+    border: 1px solid #b98732;
+    color: white;
+    background-color: #b98732;
+}
+
+
+/* main */
+main {
+    width: 100vw;
+    background-color: #c4b6ab;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+@media (max-width: 780px) {
+
+    main {
+        padding-top: 150px;
+    }
+
+
+}
+
+
+
+h1,
+h3 {
+    padding: .5rem;
+}
+
 section {
-    margin: 3% 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
 }
 
 #movies {
@@ -22,20 +133,51 @@ section {
     flex-wrap: wrap;
 }
 
-article {
+/* jede movie from js */
+.cards {
     width: 250px;
-    height: 200px;
-    background-color: coral;
-    border-radius: 2rem;
+    height: 220px;
+    background-color: #b98732;
+    border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 1rem;
     gap: 5px;
+}
 
+.cards:hover {
+    box-shadow: 1px 1px 4px 1px grey;
+    color: white;
+    background-color: #223e54;
+}
+
+.type {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #223e54;
+    background-color: #223e54;
+    color: white;
+    border-radius: 1rem;
+    padding: .3rem .5rem;
+    font-size: .8rem;
 }
 
 
-.hide {
-    display: none;
+footer {
+    background-color: #223e54;
+    width: 100vw;
+    height: 30px;
+    text-align: center;
+    padding: .5rem;
+}
+
+footer a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #b98732;
 }

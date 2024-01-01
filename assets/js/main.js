@@ -1040,28 +1040,28 @@ const movies2 = [[
 
 let outputDom = document.querySelector("#movies")
 
-// console.log(movies2);
-// function sortUp() {
-//     movies2 = movies2.sort()
-//     console.log(movies2);
-// }
-
-
-
 
 //zeigt die movies DB
 movies.forEach(showMovies)
 
 // function fur movies DB an DOM anzuzeigen
-function showMovies(movie, index) {
+function showMovies(movie) {
     let title = movie[0]
     let year = movie[1]
     let maker = movie[2]
     let duration = movie[3]
     let type = movie[4]
     let rate = movie[5]
-    // console.log(title + year);
-    outputDom.innerHTML += "<article>" + "<h3>" + title + "</h3>" + "<p>" + year + "</p>" + "<p>" + maker + "</p>" + "<p>" + duration + "</p>" + "<p>" + type + "</p>" + "<p>" + rate + "</p>" + "</article>"
+
+
+    outputDom.innerHTML += `<div class='cards'>
+        <h3>${title}</h3>
+        <p>${year}</p>
+        <p>${maker}</p>
+        <p>${duration}</p>
+        <p class='type'>${type}</p>
+        <p>${rate}</p>
+    </div>`;
 }
 
 // sort by title
@@ -1106,9 +1106,9 @@ function searchFunc() {
     let searchInput = document.querySelector('#search').value.toLowerCase()
     console.log("test" + searchInput);
     let filter = movies.filter((parameter) => {
-        return parameter[0].toLowerCase().includes(searchInput)
+        return parameter[0].toLowerCase().includes(searchInput) || parameter[1].includes(searchInput)
+
     })
-    // showMovies(filter)
     // showMovies(filter)
     filter.forEach(showMovies)
 }
@@ -1117,46 +1117,9 @@ function searchFunc() {
 
 
 
-// const searchField = document.querySelector("#searchField")
-// searchField.addEventListener("input", e => {
-//     const value = e.target.value
-//     console.log(value);
-//     movies.forEach(movies => {
-//         const istVisible = movies[0].includes(value)
-//         console.log(movies[0]);
-//         movies.element.classList.toggle("hide", !istVisible)
-//         console.log(istVisible);
-//     })})
 
 
 
-// const searchField = document.querySelector("#searchField")
-// searchField.addEventListener("input", e => {
-//     const value = e.target.value
-//     console.log(value);
-
-//     console.log(movies);
-//     movies.forEach(film => {
-//         const isVisible = film.includes(value)
-//         console.log(isVisible);
-//         film.classList.toggle("hide", !isVisible)
-//     })
-
-
-// })
-
-
-
-
-
-
-// console.log(moviesSearch);
-// outputDom.innerHTML = ""
-// moviesSearch.forEach(showMovies)
-
-//
-// istVisible.classList.toggle("hide", !istVisible)
-// console.log(movies);
 
 
 

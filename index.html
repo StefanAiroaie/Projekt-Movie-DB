@@ -8,26 +8,32 @@
   <title>Projekt: Movie DB</title>
 </head>
 
+
 <body>
-  <section>
-    <h1>Movies for you</h1>
-    <h3>the best Movie Data Base</h3>
+  <header>
+    <p class="logo">THE MOVIE DB</p>
     <form>
-      <input type="text" id="search">
+      <input type="text" id="search" placeholder="movie or Year">
       <input type="button" value="Search" onclick="searchFunc()">
     </form>
-    <!-- <input type="search" name="search" id="searchField" placeholder="Search a movie or a year"> -->
-    <div class="sortDiv">
-      <button id="sortTitle">Sort by Title</button>
+    <div class="sorting">
+      <button id="sortTitle">Sort Title A-Z</button>
       <button id="yearUp">Year up</button>
       <button id="yearDown">Year down</button>
       <button id="rate">Best Rate</button>
     </div>
-
-  </section>
-  <section id="movies">
-  </section>
+  </header>
+  <main>
+    <h1 id="top">Movies for you</h1>
+    <h3>the best Movie Data Base</h3>
+    <section id="movies">
+    </section>
+  </main>
+  <footer>
+    <p><a href="#top">TOP</a></p>
+  </footer>
   <script src="./assets/js/main.js"></script>
+
 </body>
 
 </html>
